@@ -5,7 +5,6 @@ import { mdi } from 'vuetify/iconsets/mdi'
 
 import './assets/main.css'
 
-
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
