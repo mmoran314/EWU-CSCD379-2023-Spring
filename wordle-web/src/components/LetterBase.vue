@@ -1,10 +1,17 @@
 <template>
-  <v-btn :color="props.color">
+  <v-btn class="shadow-5, elevation-10" id="gradient" :color="props.color">
     {{ props.char }}
   </v-btn>
 </template>
+<style scoped>
+#gradient {
+  background: linear-gradient(to right, #e1e1e1, #747474);
+}
+</style>
 
 <script setup lang="ts">
+// This will be eventually make a gradient for each status of the letter
+// import { computed } from 'vue'
 export interface Props {
   char?: string
   color?: string
@@ -14,4 +21,18 @@ const props = withDefaults(defineProps<Props>(), {
   char: '?',
   color: 'grey'
 })
+// code to make a gradient for the default theme
+
+// const myGradient = computed(() => {
+//   if (props.color == "misplaced") {
+//     return 'linear-gradient(to right, #ff44AC, #ff5e62)'
+//   }
+//   if (props.color == "correct") {
+//     return 'linear-gradient(to right, #00f2fe, #4facfe)'
+//   }
+//   if (props.color == "wrong") {
+//     return 'linear-gradient(to right, #ff9966, #ff5e62)'
+//   }
+// })
+
 </script>

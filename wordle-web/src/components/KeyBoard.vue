@@ -1,9 +1,11 @@
 <template>
-  <v-row class="justify-center" dense v-for="(key, i) in keyboardLetters" :key="i">
-    <v-col v-for="(letter, j) in key" :key="j">
-      <LetterButton :letter="letter" @click="letterClick(letter)" />
+  
+  <v-row class="justify-center" style="display: flex" dense v-for="(key, i) in keyboardLetters" :key="i">
+    <v-col style="padding: 0.5rem" v-for="(letter, j) in key" :key="j">
+      <LetterButton class="shadow-5"  :letter="letter" @click="letterClick(letter)" />
     </v-col>
   </v-row>
+  
 </template>
 
 <script setup lang="ts">

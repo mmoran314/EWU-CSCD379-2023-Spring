@@ -1,12 +1,20 @@
 <template>
-  <h1>Wordle Mind Bender</h1>
+  <h1 class="text-center" style="font-family: 'Helvetica Neue'">Wordle</h1>
 
   <GameBoard :game="game" @letterClick="addChar" />
 
   <KeyBoard @letterClick="addChar" :guessedLetters="game.guessedLetters" />
 
-  <v-btn @click="checkGuess" @keyup.enter="checkGuess"> Check </v-btn>
-
+  <v-container fluid>
+    <v-row>
+      <v-col>
+      <v-btn @click="checkGuess" style="background: linear-gradient(to right, #e1e1e1, #747474);" @keyup.enter="checkGuess" color="grey"> Enter </v-btn>
+      </v-col>
+      <v-col class="text-right">
+      <v-btn @click="backSpace" @keyup.enter="backSpace" color="grey"><v-icon left>mdi-backspace</v-icon>Backspace</v-btn>
+  </v-col>
+</v-row>
+</v-container>
   <h2>{{ guess }}</h2>
   <h3>{{ game.secretWord }}</h3>
 </template>
@@ -37,6 +45,11 @@ function checkGuess() {
 function addChar(letter: Letter) {
   game.guess.push(letter.char)
   guess.value += letter.char
+}
+function backSpace() {
+  guess.value = guess.value.slice(0, -1)
+  game.guess.pop()
+  console.log('Back')
 }
 
 function keyPress(event: KeyboardEvent) {
