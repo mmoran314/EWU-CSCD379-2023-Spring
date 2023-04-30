@@ -5,6 +5,10 @@
     </v-card>
   </v-sheet>
 
+<v-card v-for="item in weatherData" :key="item.date">
+  {{ item.date }} - {{ item.temperatureC }} - {{ item.summary }}
+</v-card>
+
   <v-row no-gutters>
     <v-col v-for="i in 10" :key="i" cols="12" sm="6" md="4" lg="3">
       <v-card class="ma-1">
@@ -13,6 +17,24 @@
     </v-col>
   </v-row>
 </template>
+
+<script setup lang="ts">
+  import Axios from 'axios'
+  import { ref } from 'vue'
+
+  interface WeatherData {
+    date: string
+    temperatureC: number
+    temperatureF: number
+    summary: string
+  }
+
+  const weatherData = ref<WeatherData[]>([])
+
+  Axios.get<WeatherData[]>('https://localhost:5001/WeatherForecast').then((response) => {
+    weatherData.value = response.data
+  })
+</script>
 
 <style>
 @media (min-width: 1024px) {
