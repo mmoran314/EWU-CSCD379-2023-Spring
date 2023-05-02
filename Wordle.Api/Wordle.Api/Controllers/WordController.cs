@@ -1,12 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Wordle.Api.Services;
 
 namespace Wordle.Api.Controllers
 {
-    public class WordController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class WordController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly WordService _wordService;
+        public WordController(WordService wordService)
         {
-            return View();
+            _wordService = wordService;
+        }
+        [HttpGet]
+        
+        public string Get()
+        {
+            return _wordService.GetRandomWord();
         }
     }
 }
