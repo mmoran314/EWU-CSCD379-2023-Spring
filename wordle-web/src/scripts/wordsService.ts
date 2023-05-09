@@ -1,6 +1,13 @@
+import  Axios from "axios"
+
 export abstract class WordsService {
   static getRandomWord(): string {
     return this.#words[Math.floor(Math.random() * this.#words.length)]
+  }
+
+  static async getWordFromApi(): string {
+    // Make axios call to get the word from the API
+    return "wordy"
   }
 
   static isValidWord(word: string): boolean {
