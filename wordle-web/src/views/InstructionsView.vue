@@ -6,7 +6,7 @@
      <p class="d-flex align-center justify-center">The goal of the game is to guess the five letter word within
          six guesses.
      </p>
-     <p class="d-flex align-center justify-center">
+     <p class="d-flex align-center justify-center" style="text-align: center;">
          After each guess, the game will tell you which letters are correct
          and which letters are in the wrong position. You have six guesses
          to find the word and each guess will give you some clues to find the correct word. 
@@ -50,7 +50,7 @@
      </div>
      <br>
      <div>
-        <p>
+        <p style="text-align: center;">
             If a word has multiple of the same letter, letters may appear as both correct and misplaced or wrong when guessed.
 
         </p>
