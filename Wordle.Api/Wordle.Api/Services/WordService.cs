@@ -19,5 +19,17 @@ namespace Wordle.Api.Services
             var word = await _db.Words.Where(word => word.IsCommon).Skip(index).FirstAsync();
             return word.Text;
         }
+
+        public async Task<string> GetWordOfTheDay(TimeSpan offset)
+        {
+            var localDateTime = new DateTimeOffset(DateTime.UtcNow, offset);
+            var localDate = localDateTime.Date;
+            var todaysWord = await _db.DateWords.FirstOrDefaultAsync(f => f.Date == localDate);
+
+            if (todaysWord is not null)
+            {
+                return todaysWord.Word.Text;
+            }
+        }
     }
 }

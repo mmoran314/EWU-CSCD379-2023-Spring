@@ -4,7 +4,7 @@ import router from './router'
 import { mdi } from 'vuetify/iconsets/mdi'
 
 import './assets/main.css'
-import '@mdi/font/css/materialdesignicons.css'
+//import '@mdi/font/css/materialdesignicons.css'
 
 // Vuetify
 import 'vuetify/styles'
